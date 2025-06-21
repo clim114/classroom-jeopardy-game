@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Classroom Expectations Jeopardy&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Tailwind CSS CDN --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #1a202c; /* Dark background for contrast */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #e2e8f0; /* Light text color */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #2d3748; /* Slightly lighter dark background for the container */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 1rem; /* Rounded corners for the main container */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 2.5rem; /* More padding */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 90%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 1200px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.game-board {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(5, 1fr);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 1rem; /* Gap between cells */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.category-header, .jeopardy-cell {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.5rem; /* Rounded corners */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid rgba(255, 255, 255, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.category-header {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #4a5568; /* Darker blue-gray */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.25rem; /* Larger font for categories */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 80px; /* Ensure consistent height */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.jeopardy-cell {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #3b82f6; /* Bright blue for active cells */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5rem; /* Larger font for points */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100px; /* Consistent height for question cells */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.jeopardy-cell:hover:not(.answered) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-5px); /* Lift effect on hover */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.jeopardy-cell.answered {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #64748b; /* Grey out answered questions */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: not-allowed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: line-through;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.7;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.question-modal {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: rgba(0, 0, 0, 0.85); /* Darker overlay */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>visibility: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.3s ease, visibility 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.question-modal.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>visibility: visible;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-content {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #2d3748; /* Same as container background */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 2.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 80%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 800px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(0.9);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.question-modal.active .modal-content {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-content h2 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2rem; /* Larger question title */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #a7f3d0; /* Highlight color for question */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-content p {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5rem; /* Larger text for questions/answers */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.answer-text {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #fbd38d; /* Orange-yellow for answer */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-buttons {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0.75rem 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.125rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color 0.2s ease, transform 0.1s ease;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #38a169; /* Green for reveal/mark answered */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #2f855a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-secondary {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #e53e3e; /* Red for close */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-secondary:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #c53030;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-reset {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #a0aec0; /* Grey for reset */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #2d3748;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-reset:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #718096;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.score-display {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #a7f3d0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Responsive adjustments */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 768px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gap: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.game-board {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: repeat(3, 1fr); /* 3 columns on smaller screens */</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.category-header {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>min-height: 60px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.jeopardy-cell {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>min-height: 80px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.modal-content {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>width: 95%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.modal-content h2 {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.modal-content p {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0.6rem 1.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.score-display {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 480px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.game-board {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: repeat(2, 1fr); /* 2 columns on very small screens */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.category-header {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>min-height: 50px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.jeopardy-cell {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>min-height: 70px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.modal-content {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.modal-content h2 {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.modal-content p {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.modal-buttons {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 class="text-4xl font-bold text-center text-white mb-4"&gt;Classroom Expectations Jeopardy!&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="score-display" class="score-display"&gt;Score: 0&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="game-board" class="game-board"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Jeopardy cells will be dynamically generated here --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button id="reset-button" class="btn btn-reset"&gt;Reset Game&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Question Modal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="question-modal" class="question-modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 id="modal-category"&gt;&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="modal-question"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="modal-answer" class="answer-text hidden"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="modal-buttons"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="reveal-button" class="btn btn-primary"&gt;Reveal Answer&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="mark-answered-button" class="btn btn-primary"&gt;Mark as Answered&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="close-modal-button" class="btn btn-secondary"&gt;Close&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Game data: Categories, questions, and answers</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const gameData = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Take a Guess": [</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 100, question: "What should you do immediately when you enter the classroom?", answer: "Go directly to your assigned seat and begin the 'Do Now' or bell work activity." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 200, question: "When is it okay to pack up your belongings at the end of class?", answer: "Only when the teacher instructs you to do so, not when the bell rings." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 300, question: "What is the first thing you should do if you want to speak or contribute to a class discussion?", answer: "Raise your hand and wait to be called upon." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 400, question: "If you are confused about an assignment or a concept, what is the best way to get help?", answer: "Ask the teacher for clarification, raise your hand during class, or seek help during designated office hours." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 500, question: "Who dismisses the class at the end of the period?", answer: "The teacher dismisses the class, not the bell." }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Favorites": [</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 100, question: "What is your favorite subject to learn about (besides this one!)?", answer: "This question is open-ended! Any subject you enjoy is a great answer." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 200, question: "Which method helps you learn best: reading, listening, or doing (hands-on activities)?", answer: "This question is open-ended! Everyone learns differently, and all methods are valuable." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 300, question: "What's your favorite way to collaborate with classmates on a project?", answer: "This question is open-ended! Common ways include brainstorming, dividing tasks, or peer editing." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 400, question: "Which classroom supply do you use the most (e.g., pen, pencil, notebook, ruler)?", answer: "This question is open-ended! Whatever helps you succeed the most." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 500, question: "What's one thing you hope to learn or achieve in this class this year?", answer: "This question is open-ended! Setting goals is a great way to start the year." }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Fun Fact": [</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 100, question: "True or False: Our classroom's 'secret handshake' involves three high-fives and a wiggle.", answer: "False! (Unless we decide to make one up! 😉)" },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 200, question: "What is the teacher's favorite color? (Hint: It's the color of a clear sky on a nice day).", answer: "Blue! (Or whatever your actual favorite color is, teacher!)" },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 300, question: "Name one unexpected (but still appropriate!) use for a common classroom item like a paperclip.", answer: "Possible answers: bookmark, temporary wire holder, key ring, makeshift screwdriver for small screws (use with care!)." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 400, question: "What is one 'fun fact' about why keeping our classroom tidy is helpful?", answer: "A clean space helps us think clearly, find things easily, and prevents accidents or tripping hazards!" },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 500, question: "What does the Latin root of the word 'student' (studere) mean?", answer: "It means 'to be eager' or 'to devote oneself'! So you are someone eager to learn." }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Would You Rather": [</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 100, question: "Would you rather work on an assignment in a quiet classroom or a classroom with soft background music?", answer: "This question is open-ended! Both can be good depending on personal preference." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 200, question: "Would you rather have all homework due on Monday morning or spread out through the week?", answer: "This question is open-ended! Both have pros and cons for managing workload." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 300, question: "Would you rather be responsible for cleaning up a messy desk area or organizing a bookshelf full of textbooks?", answer: "This question is open-ended! Both involve tidying, which is important." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 400, question: "Would you rather forget your pencil for class or forget your notebook?", answer: "This question is open-ended! Both can be challenging, but a notebook might be harder to improvise." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 500, question: "Would you rather present a project individually to the class or with a group of classmates?", answer: "This question is open-ended! Both require preparation and speaking skills." }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"This or That": [</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 100, question: "Notebooks or Binders?", answer: "This question is open-ended! Both are great for organization." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 200, question: "Pens or Pencils?", answer: "This question is open-ended! Pens are permanent, pencils allow for erasing mistakes." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 300, question: "Group work or Individual work?", answer: "This question is open-ended! Both are valuable for different learning objectives." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 400, question: "Digital notes or Handwritten notes?", answer: "This question is open-ended! Digital notes are searchable, handwritten notes can aid memory." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ points: 500, question: "Morning person or Evening person?", answer: "This question is open-ended! Understanding your own energy levels can help with learning." }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>]</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentScore = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentCell = null; // To keep track of the currently selected cell</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentQuestionData = null; // To store current question details for modal</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Get DOM elements</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const gameBoard = document.getElementById('game-board');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const questionModal = document.getElementById('question-modal');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const modalCategory = document.getElementById('modal-category');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const modalQuestion = document.getElementById('modal-question');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const modalAnswer = document.getElementById('modal-answer');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const revealButton = document.getElementById('reveal-button');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const markAnsweredButton = document.getElementById('mark-answered-button');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const closeModalButton = document.getElementById('close-modal-button');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const resetButton = document.getElementById('reset-button');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const scoreDisplay = document.getElementById('score-display');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Initializes the game board by dynamically creating cells based on gameData.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Sets up event listeners for each cell.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function initializeGameBoard() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gameBoard.innerHTML = ''; // Clear existing board</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Create category headers</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (const category in gameData) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const header = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>header.classList.add('category-header');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>header.textContent = category;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gameBoard.appendChild(header);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Create question cells</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const categories = Object.keys(gameData);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const numPoints = 5; // 100, 200, 300, 400, 500</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Loop through point values first (row by row visually)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; numPoints; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>categories.forEach(category =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const questionIndex = i;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const question = gameData[category][questionIndex];</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (question) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>const cell = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>cell.classList.add('jeopardy-cell');</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>cell.textContent = `$${question.points}`;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>cell.dataset.category = category;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>cell.dataset.questionIndex = questionIndex;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>cell.addEventListener('click', () =&gt; handleCellClick(cell, question));</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>gameBoard.appendChild(cell);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Handles the click event on a Jeopardy cell.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Displays the question modal with the corresponding question.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* @param {HTMLElement} cell - The clicked cell element.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* @param {Object} questionData - The data for the question.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function handleCellClick(cell, questionData) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (cell.classList.contains('answered')) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return; // Do nothing if already answered</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentCell = cell;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentQuestionData = questionData;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>modalCategory.textContent = cell.dataset.category;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modalQuestion.textContent = questionData.question;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modalAnswer.textContent = questionData.answer;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Reset modal state</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modalAnswer.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>revealButton.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>markAnsweredButton.classList.remove('hidden');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>questionModal.classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Reveals the answer in the question modal.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function revealAnswer() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modalAnswer.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>revealButton.classList.add('hidden'); // Hide reveal button once answer is shown</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Marks the current question as answered, updates the score,</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* and closes the modal.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function markAsAnswered() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (currentCell &amp;&amp; currentQuestionData) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>currentCell.classList.add('answered');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>currentCell.textContent = ''; // Clear points after answering</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Add points to score (assuming answering correctly gets points for review)</p>
+<p class="p1"><span class="Apple-converted-space">                </span>currentScore += currentQuestionData.points;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>scoreDisplay.textContent = `Score: ${currentScore}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>closeModal();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Closes the question modal.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function closeModal() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>questionModal.classList.remove('active');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentCell = null;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentQuestionData = null;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Resets the game to its initial state.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function resetGame() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentScore = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scoreDisplay.textContent = `Score: ${currentScore}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>initializeGameBoard(); // Re-render the board</p>
+<p class="p1"><span class="Apple-converted-space">            </span>closeModal();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Event Listeners for modal buttons and reset button</p>
+<p class="p1"><span class="Apple-converted-space">        </span>revealButton.addEventListener('click', revealAnswer);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>markAnsweredButton.addEventListener('click', markAsAnswered);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>closeModalButton.addEventListener('click', closeModal);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>resetButton.addEventListener('click', resetGame);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Initialize the game when the window loads</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.onload = initializeGameBoard;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
